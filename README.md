@@ -1,161 +1,126 @@
-<!-- Improved compatibility of back to top link: See: https://github.com/othneildrew/Best-README-Template/pull/73 -->
+<!-- Mejorada la compatibilidad del enlace "Volver al inicio": Ver: https://github.com/othneildrew/Best-README-Template/pull/73 -->
 <a id="readme-top"></a>
 <!--
-*** Thanks for checking out the Best-README-Template. If you have a suggestion
-*** that would make this better, please fork the repo and create a pull request
-*** or simply open an issue with the tag "enhancement".
-*** Don't forget to give the project a star!
-*** Thanks again! Now go create something AMAZING! :D
+*** ¡Gracias por revisar el Best-README-Template! Si tienes una sugerencia
+*** que lo haga aún mejor, por favor fork el repositorio y crea un pull request
+*** o simplemente abre un issue con la etiqueta "enhancement".
+*** ¡No olvides darle una estrella al proyecto!
+*** ¡Gracias nuevamente! Ahora, ve y crea algo INCREÍBLE! :D
 -->
 
 
 
-<!-- PROJECT SHIELDS -->
+<!-- ESCUDOS DEL PROYECTO -->
 <!--
-*** I'm using markdown "reference style" links for readability.
-*** Reference links are enclosed in brackets [ ] instead of parentheses ( ).
-*** See the bottom of this document for the declaration of the reference variables
-*** for contributors-url, forks-url, etc. This is an optional, concise syntax you may use.
+*** Estoy usando enlaces de estilo "referencia" en markdown para mayor legibilidad.
+*** Los enlaces de referencia se encierran entre corchetes [ ] en lugar de paréntesis ( ).
+*** Consulta la parte inferior de este documento para la declaración de las variables de referencia
+*** para contributors-url, forks-url, etc. Esta es una sintaxis opcional y concisa que puedes usar.
 *** https://www.markdownguide.org/basic-syntax/#reference-style-links
 -->
-[![Contributors][contributors-shield]][contributors-url]
+[![Contribuidores][contributors-shield]][contributors-url]
 [![Forks][forks-shield]][forks-url]
-[![Stargazers][stars-shield]][stars-url]
+[![Estrellas][stars-shield]][stars-url]
 [![Issues][issues-shield]][issues-url]
-[![Unlicense License][license-shield]][license-url]
-[![LinkedIn][linkedin-shield]][linkedin-url]
+[![Licencia Unlicense][license-shield]][license-url]
 
 
 
-<!-- PROJECT LOGO -->
+<!-- LOGO DEL PROYECTO -->
 <br />
 <div align="center">
   <a href="https://github.com/othneildrew/Best-README-Template">
     <img src="images/Post de Facebook Logo Vibras simple amarillo.png" alt="Logo" width="470" height="394">
   </a>
   <p align="center">
-    Un proyecto enfocado en la purificacion de Aire
+    Un proyecto enfocado en la purificación de Aire
     <br />
     <a href="https://github.com/Mtt1-dev/SafetyAir/issues/new?labels=bug&template=bug-report---.md">Reporta un Bug</a>
     &middot;
-    <a href="https://github.com/Mtt1-dev/SafetyAir/issues/new?labels=enhancement&template=feature-request---.md">Solicita una funcion Nueva.</a>
+    <a href="https://github.com/Mtt1-dev/SafetyAir/issues/new?labels=enhancement&template=feature-request---.md">Solicita una función nueva.</a>
   </p>
 </div>
 
-<!-- ABOUT THE PROJECT -->
+<!-- SOBRE EL PROYECTO -->
 ## Sobre El Proyecto
 
-There are many great README templates available on GitHub; however, I didn't find one that really suited my needs so I created this enhanced one. I want to create a README template so amazing that it'll be the last one you ever need -- I think this is it.
+Existen muchas plantillas de README geniales en GitHub; sin embargo, no encontré una que realmente se ajustara a mis necesidades, así que creé esta mejorada. Quiero crear una plantilla de README tan increíble que será la última que necesites, ¡y creo que esta es!
 
-Here's why:
-* Your time should be focused on creating something amazing. A project that solves a problem and helps others
-* You shouldn't be doing the same tasks over and over like creating a README from scratch
-* You should implement DRY principles to the rest of your life :smile:
+Aquí está la razón:
+* Tu tiempo debe enfocarse en crear algo increíble. Un proyecto que resuelva un problema y ayude a los demás.
+* No deberías estar haciendo las mismas tareas una y otra vez, como crear un README desde cero.
+* Debes aplicar los principios DRY (Don't Repeat Yourself) en tu vida también :smile:
 
-Of course, no one template will serve all projects since your needs may be different. So I'll be adding more in the near future. You may also suggest changes by forking this repo and creating a pull request or opening an issue. Thanks to all the people have contributed to expanding this template!
+Por supuesto, ninguna plantilla servirá para todos los proyectos, ya que tus necesidades pueden ser diferentes. Así que agregaré más en el futuro cercano. También puedes sugerir cambios forkeando este repositorio y creando un pull request o abriendo un issue. ¡Gracias a todas las personas que han contribuido a expandir esta plantilla!
 
-Use the `BLANK_README.md` to get started.
+Usa el archivo `BLANK_README.md` para comenzar.
 
-<p align="right">(<a href="#readme-top">Regresar</a>)</p>
-
-
+<p align="right">(<a href="#readme-top">Volver al inicio</a>)</p>
 
 ### Hecho Con
 
-This section should list any major frameworks/libraries used to bootstrap your project. Leave any add-ons/plugins for the acknowledgements section. Here are a few examples.
+Esta sección debe listar cualquier marco o librería importante usada para iniciar tu proyecto. Deja cualquier complemento/plugin para la sección de agradecimientos. Aquí hay algunos ejemplos.
 
 * [![c++][Next.js]][Next-url]
 
-
-<p align="right">(<a href="#readme-top">Regresar.</a>)</p>
+<p align="right">(<a href="#readme-top">Volver al inicio</a>)</p>
 <!-- ROADMAP -->
 ## Roadmap
 
-- [x] Add Changelog
-- [x] Add back to top links
-- [ ] Add Additional Templates w/ Examples
-- [ ] Add "components" document to easily copy & paste sections of the readme
-- [ ] Multi-language Support
-    - [ ] Chinese
-    - [ ] Spanish
+- [x] Agregar Changelog
+- [x] Agregar enlaces de "volver al inicio"
+- [ ] Agregar plantillas adicionales con ejemplos
+- [ ] Agregar un documento "componentes" para copiar y pegar fácilmente secciones del README
+- [ ] Soporte multilenguaje
+    - [ ] Chino
+    - [ ] Español
 
-See the [open issues](https://github.com/othneildrew/Best-README-Template/issues) for a full list of proposed features (and known issues).
+Consulta los [issues abiertos](https://github.com/othneildrew/Best-README-Template/issues) para ver una lista completa de características propuestas (y problemas conocidos).
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+<p align="right">(<a href="#readme-top">volver al inicio</a>)</p>
 
+<!-- CONTRIBUCIÓN -->
+## Contribuyendo
 
+Las contribuciones son lo que hacen que la comunidad de código abierto sea un lugar increíble para aprender, inspirar y crear. Cualquier contribución que hagas es **muy apreciada**.
 
-<!-- CONTRIBUTING -->
-## Contributing
+Si tienes una sugerencia que haría esto aún mejor, por favor fork el repositorio y crea un pull request. También puedes simplemente abrir un issue con la etiqueta "enhancement".
+¡No olvides darle una estrella al proyecto! ¡Gracias nuevamente!
 
-Contributions are what make the open source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
+1. Haz un Fork del Proyecto
+2. Crea tu rama de función (`git checkout -b feature/AmazingFeature`)
+3. Realiza tus cambios (`git commit -m 'Añadir alguna AmazingFeature'`)
+4. Empuja los cambios a tu rama (`git push origin feature/AmazingFeature`)
+5. Abre un Pull Request
 
-If you have a suggestion that would make this better, please fork the repo and create a pull request. You can also simply open an issue with the tag "enhancement".
-Don't forget to give the project a star! Thanks again!
-
-1. Fork the Project
-2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the Branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
-
-### Top contributors:
+### Principales colaboradores:
 
 <a href="https://github.com/othneildrew/Best-README-Template/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=othneildrew/Best-README-Template" alt="contrib.rocks image" />
+  <img src="https://contrib.rocks/image?repo=othneildrew/Best-README-Template" alt="imagen contrib.rocks" />
 </a>
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+<p align="right">(<a href="#readme-top">volver al inicio</a>)</p>
 
+<!-- LICENCIA -->
+## Licencia
 
+Distribuido bajo la Licencia Unlicense. Consulta el archivo `LICENSE.txt` para más información.
 
-<!-- LICENSE -->
-## License
+<p align="right">(<a href="#readme-top">volver al inicio</a>)</p>
 
-Distributed under the Unlicense License. See `LICENSE.txt` for more information.
+<!-- AGRADECIMIENTOS -->
+## Agradecimientos
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+Usa este espacio para listar recursos que encuentres útiles y a los que quieras dar crédito. He incluido algunos de mis favoritos para comenzar.
 
-
-
-<!-- CONTACT -->
-## Contact
-
-Your Name - [@your_twitter](https://twitter.com/your_username) - email@example.com
-
-Project Link: [https://github.com/your_username/repo_name](https://github.com/your_username/repo_name)
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-
-
-<!-- ACKNOWLEDGMENTS -->
-## Acknowledgments
-
-Use this space to list resources you find helpful and would like to give credit to. I've included a few of my favorites to kick things off!
-
-* [Choose an Open Source License](https://choosealicense.com)
-* [GitHub Emoji Cheat Sheet](https://www.webpagefx.com/tools/emoji-cheat-sheet)
-* [Malven's Flexbox Cheatsheet](https://flexbox.malven.co/)
-* [Malven's Grid Cheatsheet](https://grid.malven.co/)
+* [Elegir una licencia de código abierto](https://choosealicense.com)
+* [Guía de emojis de GitHub](https://www.webpagefx.com/tools/emoji-cheat-sheet)
+* [Flexbox Cheatsheet de Malven](https://flexbox.malven.co/)
+* [Grid Cheatsheet de Malven](https://grid.malven.co/)
 * [Img Shields](https://shields.io)
 * [GitHub Pages](https://pages.github.com)
 * [Font Awesome](https://fontawesome.com)
 * [React Icons](https://react-icons.github.io/react-icons/search)
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+<p align="right">(<a href="#readme-top">volver al inicio</a>)</p>
 
-
-
-<!-- MARKDOWN LINKS & IMAGES -->
-<!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
-[contributors-shield]: https://img.shields.io/github/contributors/Mtt-dev1/SafetyAir.svg?style=for-the-badge
-[contributors-url]: https://github.com//Mtt-dev1/SafetyAir/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/Mtt-dev1/SafetyAir.svg?style=for-the-badge
-[forks-url]: https://github.com/Mtt-dev1/SafetyAir/network/members
-[stars-shield]: https://img.shields.io/github/stars/Mtt-dev1/SafetyAir.svg?style=for-the-badge
-[stars-url]: https://github.com/Mtt-dev1/SafetyAir/stargazers
-[issues-shield]: https://img.shields.io/github/issues/Mtt-dev1/SafetyAir.svg?style=for-the-badge
-[issues-url]: https://github.com/Mtt-dev1/SafetyAir/issues
-[license-shield]: https://img.shields.io/github/license/Mtt-dev1/SafetyAir.svg?style=for-the-badge
-[license-url]: https://github.com/Mtt-dev1/SafetyAir/blob/master/LICENSE.txt
