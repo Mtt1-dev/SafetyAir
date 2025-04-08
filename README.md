@@ -31,7 +31,7 @@
 <br />
 <div align="center">
   <a href="https://github.com/othneildrew/Best-README-Template">
-    <img src="images/Post de Facebook Logo Vibras simple amarillo.png" alt="Logo" width="80" height="80">
+    <img src="images/Post de Facebook Logo Vibras simple amarillo.png">
   </a>
   <p align="center">
     Un proyecto enfocado en la purificacion de Aire
