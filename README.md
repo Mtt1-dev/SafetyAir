@@ -126,16 +126,9 @@ Distribuido bajo la Licencia Unlicense. Consulta el archivo `LICENSE.txt` para m
 <!-- AGRADECIMIENTOS -->
 ## Agradecimientos
 
-Usa este espacio para listar recursos que encuentres útiles y a los que quieras dar crédito. He incluido algunos de mis favoritos para comenzar.
-
-* [Elegir una licencia de código abierto](https://choosealicense.com)
-* [Guía de emojis de GitHub](https://www.webpagefx.com/tools/emoji-cheat-sheet)
-* [Flexbox Cheatsheet de Malven](https://flexbox.malven.co/)
-* [Grid Cheatsheet de Malven](https://grid.malven.co/)
-* [Img Shields](https://shields.io)
-* [GitHub Pages](https://pages.github.com)
-* [Font Awesome](https://fontawesome.com)
-* [React Icons](https://react-icons.github.io/react-icons/search)
+* [El Equipo De Pauta](https://www.pauta.org.mx/en/)
+* Mi Equipo De Pauta (No Mencionado)
+* [El equipo de ESPruino](https://www.espruino.com/)
 
 <p align="right">(<a href="#readme-top">volver al inicio</a>)</p>
 
