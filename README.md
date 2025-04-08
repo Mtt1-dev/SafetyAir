@@ -18,11 +18,6 @@
 *** para contributors-url, forks-url, etc. Esta es una sintaxis opcional y concisa que puedes usar.
 *** https://www.markdownguide.org/basic-syntax/#reference-style-links
 -->
-[![Contribuidores][contributors-shield]][contributors-url]
-[![Forks][forks-shield]][forks-url]
-[![Estrellas][stars-shield]][stars-url]
-[![Issues][issues-shield]][issues-url]
-[![Licencia Unlicense][license-shield]][license-url]
 
 
 
@@ -61,7 +56,8 @@ Usa el archivo `BLANK_README.md` para comenzar.
 
 Esta sección debe listar cualquier marco o librería importante usada para iniciar tu proyecto. Deja cualquier complemento/plugin para la sección de agradecimientos. Aquí hay algunos ejemplos.
 
-* [![c++][Next.js]][Next-url]
+![Static Badge](https://img.shields.io/badge/JavaScript?style=for-the-badge&logo=JavaScript)
+
 
 <p align="right">(<a href="#readme-top">Volver al inicio</a>)</p>
 <!-- ROADMAP -->
