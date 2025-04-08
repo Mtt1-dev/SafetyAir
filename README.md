@@ -47,17 +47,14 @@
 |---------------------------------|------------------|-------------------------------|
 | ESP32 DevKitC v4                | 350-450          | MercadoLibre, Amazon MX        |
 | LCD 3.5" táctil                 | 300-380          | ElectronicaMX, MercadoLibre    |
-| LED RGB WS2812B (tira de 60)    | 150-200          | Adafruit MX, ElectronicaMX     |
-| Botones táctiles grandes (3 unidades) | 100-150     | MercadoLibre, tiendas especializadas |
+| Tira Neopixel (tira de 60)      | 150-200          | Adafruit MX, ElectronicaMX     |
+| Botones táctiles grandes (3 unidades) | 100-150    | MercadoLibre, tiendas especializadas |
 | Filtro HEPA H13                 | 400-500          | Amazon MX, Home Depot MX       |
 | Ventilador DC 120mm             | 200-250          | PC Componentes, MercadoLibre   |
 | MQ135                           | 100-150          | ElectronicaMX, Adafruit MX     |
 | DHT11                           | 80-120           | MercadoLibre, tiendas especializadas |
-| BME280                          | 150-200          | Adafruit MX, ElectronicaMX     |
 | Altavoz 3W                      | 150-200          | PC Componentes, MercadoLibre   |
-| Vibrador táctil                 | 60-100           | ElectronicaMX, tiendas especializadas |
 | Micrófono MEMS                  | 100-150          | Adafruit MX, MercadoLibre      |
-| Materiales para carcasa         | 300-400          | Home Depot MX, Ferreterías     |
 
   ## Presupuesto Total Estimado
     - **Componentes electrónicos**: 2,390 - 2,920 MXN
