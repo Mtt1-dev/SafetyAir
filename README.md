@@ -89,9 +89,10 @@
 <p align="right">(<a href="#readme-top">Volver al inicio</a>)</p>
 <!-- ROADMAP -->
 ## Por Hacer
-- [x] Planear
-- [x] Materiales
-- [ ] Agregar plantillas adicionales con ejemplos
+  - [x] Planear
+  - [x] Materiales
+  - [ ] Realizar el fisico
+  - [ ] Realizar el codigo
 
 
 Consulta los [issues abiertos](https://github.com/othneildrew/Best-README-Template/issues) para ver una lista completa de características propuestas (y problemas conocidos).
