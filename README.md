@@ -39,16 +39,48 @@
 <!-- SOBRE EL PROYECTO -->
 ## Sobre El Proyecto
 
-Existen muchas plantillas de README geniales en GitHub; sin embargo, no encontré una que realmente se ajustara a mis necesidades, así que creé esta mejorada. Quiero crear una plantilla de README tan increíble que será la última que necesites, ¡y creo que esta es!
+ Un purificador de aire para un proyecto de cinecias sobre nuestra comunidad, Usando estos Materiales
 
-Aquí está la razón:
-* Tu tiempo debe enfocarse en crear algo increíble. Un proyecto que resuelva un problema y ayude a los demás.
-* No deberías estar haciendo las mismas tareas una y otra vez, como crear un README desde cero.
-* Debes aplicar los principios DRY (Don't Repeat Yourself) en tu vida también :smile:
+ # Costos Unitarios
 
-Por supuesto, ninguna plantilla servirá para todos los proyectos, ya que tus necesidades pueden ser diferentes. Así que agregaré más en el futuro cercano. También puedes sugerir cambios forkeando este repositorio y creando un pull request o abriendo un issue. ¡Gracias a todas las personas que han contribuido a expandir esta plantilla!
+| Componente                     | Precio MXN       | Fuente                        |
+|---------------------------------|------------------|-------------------------------|
+| ESP32 DevKitC v4                | 350-450          | MercadoLibre, Amazon MX        |
+| LCD 3.5" táctil                 | 300-380          | ElectronicaMX, MercadoLibre    |
+| LED RGB WS2812B (tira de 60)    | 150-200          | Adafruit MX, ElectronicaMX     |
+| Botones táctiles grandes (3 unidades) | 100-150     | MercadoLibre, tiendas especializadas |
+| Filtro HEPA H13                 | 400-500          | Amazon MX, Home Depot MX       |
+| Ventilador DC 120mm             | 200-250          | PC Componentes, MercadoLibre   |
+| MQ135                           | 100-150          | ElectronicaMX, Adafruit MX     |
+| DHT11                           | 80-120           | MercadoLibre, tiendas especializadas |
+| BME280                          | 150-200          | Adafruit MX, ElectronicaMX     |
+| Altavoz 3W                      | 150-200          | PC Componentes, MercadoLibre   |
+| Vibrador táctil                 | 60-100           | ElectronicaMX, tiendas especializadas |
+| Micrófono MEMS                  | 100-150          | Adafruit MX, MercadoLibre      |
+| Materiales para carcasa         | 300-400          | Home Depot MX, Ferreterías     |
 
-Usa el archivo `BLANK_README.md` para comenzar.
+  ## Presupuesto Total Estimado
+    - **Componentes electrónicos**: 2,390 - 2,920 MXN
+    - **Materiales de construcción**: 300 - 400 MXN
+    - **Total aproximado**: 2,690 - 3,320 MXN
+
+  ### Tiendas en Línea Recomendadas
+    - ElectronicaMX.com
+    - Adafruit.mx
+    - MercadoLibre.com.mx
+    - Amazon.mx
+
+  ### Tiendas Físicas
+    - Home Depot (filtros y materiales)
+    - PC Componentes (ventilador y altavoz)
+    - Ferreterías locales (materiales de construcción)
+
+  ## Consideraciones Importantes
+    - Verificar disponibilidad antes de comprar
+    - Comparar precios entre diferentes vendedores
+    - Considerar costos de envío si se compra en línea
+    - Revisar garantías y políticas de devolución
+
 
 <p align="right">(<a href="#readme-top">Volver al inicio</a>)</p>
 
