@@ -31,7 +31,7 @@
 <br />
 <div align="center">
   <a href="https://github.com/othneildrew/Best-README-Template">
-    <img src="images/logo.png" alt="Logo" width="80" height="80">
+    <img src="images/Post de Facebook Logo Vibras simple amarillo.png" alt="Logo" width="80" height="80">
   </a>
 
   <h3 align="center">SafetyAir</h3>
@@ -39,38 +39,14 @@
   <p align="center">
     Un proyecto enfocado en la purificacion de Aire
     <br />
-    <a href="https://github.com/Mtt1-dev/SafetyAir"><strong>Explore the docs »</strong></a>
-    &middot;
     <a href="https://github.com/Mtt1-dev/SafetyAir/issues/new?labels=bug&template=bug-report---.md">Reporta un Bug</a>
     &middot;
     <a href="https://github.com/Mtt1-dev/SafetyAir/issues/new?labels=enhancement&template=feature-request---.md">Solicita una funcion Nueva.</a>
   </p>
 </div>
 
-
-
-<!-- TABLE OF CONTENTS -->
-<details>
-  <summary>Table of Contents</summary>
-  <ol>
-    <li>
-      <a href="#about-the-project">Sobre el Proyecto</a>
-      <ul>
-        <li><a href="#built-with">Hecho Con</a></li>
-      </ul>
-    </li>
-    <li><a href="#roadmap">Siguientes Pasos</a></li>
-    <li><a href="#contributing">Para Contribuir</a></li>
-    <li><a href="#license">Licensia</a></li>
-  </ol>
-</details>
-
-
-
 <!-- ABOUT THE PROJECT -->
 ## Sobre El Proyecto
-
-[![Product Name Screen Shot][product-screenshot]](https://example.com)
 
 There are many great README templates available on GitHub; however, I didn't find one that really suited my needs so I created this enhanced one. I want to create a README template so amazing that it'll be the last one you ever need -- I think this is it.
 
@@ -83,7 +59,7 @@ Of course, no one template will serve all projects since your needs may be diffe
 
 Use the `BLANK_README.md` to get started.
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+<p align="right">(<a href="#readme-top">Regresar</a>)</p>
 
 
 
