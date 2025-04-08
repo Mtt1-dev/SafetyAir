@@ -54,22 +54,16 @@ Usa el archivo `BLANK_README.md` para comenzar.
 
 ### Hecho Con
 
-Esta sección debe listar cualquier marco o librería importante usada para iniciar tu proyecto. Deja cualquier complemento/plugin para la sección de agradecimientos. Aquí hay algunos ejemplos.
-
-![Static Badge](https://img.shields.io/badge/JavaScript?style=for-the-badge&logo=JavaScript)
+![Static Badge](https://img.shields.io/badge/Java-Script-yellow?style=for-the-badge&logo=javascript)
 
 
 <p align="right">(<a href="#readme-top">Volver al inicio</a>)</p>
 <!-- ROADMAP -->
-## Roadmap
-
-- [x] Agregar Changelog
-- [x] Agregar enlaces de "volver al inicio"
+## Por Hacer
+- [x] Planear
+- [x] Materiales
 - [ ] Agregar plantillas adicionales con ejemplos
-- [ ] Agregar un documento "componentes" para copiar y pegar fácilmente secciones del README
-- [ ] Soporte multilenguaje
-    - [ ] Chino
-    - [ ] Español
+
 
 Consulta los [issues abiertos](https://github.com/othneildrew/Best-README-Template/issues) para ver una lista completa de características propuestas (y problemas conocidos).
 
@@ -80,19 +74,12 @@ Consulta los [issues abiertos](https://github.com/othneildrew/Best-README-Templa
 
 Las contribuciones son lo que hacen que la comunidad de código abierto sea un lugar increíble para aprender, inspirar y crear. Cualquier contribución que hagas es **muy apreciada**.
 
-Si tienes una sugerencia que haría esto aún mejor, por favor fork el repositorio y crea un pull request. También puedes simplemente abrir un issue con la etiqueta "enhancement".
-¡No olvides darle una estrella al proyecto! ¡Gracias nuevamente!
-
-1. Haz un Fork del Proyecto
-2. Crea tu rama de función (`git checkout -b feature/AmazingFeature`)
-3. Realiza tus cambios (`git commit -m 'Añadir alguna AmazingFeature'`)
-4. Empuja los cambios a tu rama (`git push origin feature/AmazingFeature`)
-5. Abre un Pull Request
+Puedes abrir una ***Pull Request*** facilmente e implementar tu codigo.
 
 ### Principales colaboradores:
 
-<a href="https://github.com/othneildrew/Best-README-Template/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=othneildrew/Best-README-Template" alt="imagen contrib.rocks" />
+<a href="https://github.com/Mtt1-dev/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=Mtt1-dev/SafetyAir" alt="imagen contrib.rocks" />
 </a>
 
 <p align="right">(<a href="#readme-top">volver al inicio</a>)</p>
