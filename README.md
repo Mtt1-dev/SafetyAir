@@ -39,7 +39,9 @@
 <!-- SOBRE EL PROYECTO -->
 ## Sobre El Proyecto
 
- Un purificador de aire para un proyecto de cinecias sobre nuestra comunidad, Usando estos Materiales
+Es un proyecto basado en la purificacion de aire con elementos piezo-electricos y biotecnologia usamos elmentos de la separacion liquida como pueden ser la filtracion y aplicarla en gases tomando un nuevo enfoque utilizando lo piezo-electrico para automatizar todo el proceso facilmente, se utilizaran recursos cuales son las herramientas de la informatica con ciertas herramientas como las APIs ayudando a facilitar este proceso.
+
+Se usan estos materiales:
 
  # Costos Unitarios
 
@@ -48,14 +50,15 @@
 | ESP32 DevKitC v4                | 350-450          | MercadoLibre, Amazon MX        |
 | LCD 3.5" táctil                 | 300-380          | ElectronicaMX, MercadoLibre    |
 | Tira Neopixel (tira de 60)      | 150-200          | Adafruit MX, ElectronicaMX     |
-| Botones táctiles grandes (3 unidades) | 100-150    | MercadoLibre, tiendas especializadas |
+| Botones táctiles grandes        | 100-150          | MercadoLibre, tiendas especializadas |
 | Filtro HEPA H13                 | 400-500          | Amazon MX, Home Depot MX       |
 | Ventilador DC 120mm             | 200-250          | PC Componentes, MercadoLibre   |
 | MQ135                           | 100-150          | ElectronicaMX, Adafruit MX     |
 | DHT11                           | 80-120           | MercadoLibre, tiendas especializadas |
 | Altavoz 3W                      | 150-200          | PC Componentes, MercadoLibre   |
-| Micrófono MEMS                  | 100-150          | Adafruit MX, MercadoLibre      |
-
+| Algas Chlorella Vulgaris        | 100-300          | MercadoLibre                   |
+| Laminas de Aluminio             | 150-200          | Amazon, AliExpress             |
+---------------------------------------------------------------------------------------
   ## Presupuesto Total Estimado
     - **Componentes electrónicos**: 2,390 - 2,920 MXN
     - **Materiales de construcción**: 300 - 400 MXN
