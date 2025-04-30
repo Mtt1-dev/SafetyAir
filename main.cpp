@@ -1,4 +1,4 @@
-// ========== main.ino (Improved with Web App Config) ==========
+// ========== main.ino ========== //
 #include <Adafruit_NeoPixel.h>
 #include <WiFi.h>
 #include <WebServer.h>
@@ -6,7 +6,8 @@
 #include <ArduinoJson.h>
 #include <LiquidCrystal_I2C.h>
 #include <BluetoothSerial.h>
-#include <DHT11.h>
+#include <DHT.h>
+#include "driver/ledc.h"
 
 #define LED_PIN     2
 #define FAN_PIN     3
@@ -17,7 +18,7 @@
 #define PWM_FREQ    5000
 #define PWM_RES     8
 #define DHTPIN      18
-#define DHTTYPE     DHT22
+#define DHTTYPE     DHT11
 #define DHT_CHECK_INTERVAL 5000
 #define NIGHT_HOUR  22
 #define MORNING_HOUR 7
@@ -27,7 +28,7 @@ Adafruit_NeoPixel strip(1, PIX_PIN, NEO_GRB + NEO_KHZ800);
 WebServer server(80);
 BluetoothSerial SerialBT;
 LiquidCrystal_I2C lcd(0x27, 16, 2);
-DHT11 dht(DHTPIN, DHTTYPE);
+DHT dht(DHTPIN, DHTTYPE);
 
 String ssid = "YOUR_SSID";
 String pass = "YOUR_PASS";
@@ -60,7 +61,7 @@ void setup() {
   pinMode(MQ135_PIN, INPUT);
 
   ledcSetup(PWM_CH, PWM_FREQ, PWM_RES);
-  ledcAttachPin(FAN_PIN, PWM_CH);
+  ledcAttach(FAN_PIN, PWM_CH);
 
   strip.begin();
   strip.show();
@@ -145,7 +146,7 @@ void readSensors() {
   strip.show();
   localAQ = mq;
 
-  updateDHT();
+  updateDHTReadings();
   updateLCD(localAQ);
 }
 
@@ -171,7 +172,7 @@ void fetchCityAQI() {
 
 void setupRoutes() {
   server.on("/", []() {
-    server.send(200, "text/html", R"(
+    server.send(200, "text/html", R"rawliteral(
       <html>
         <head>
           <style>
@@ -231,7 +232,9 @@ void setupRoutes() {
           </div>
         </body>
       </html>
-    )"});
+    )rawliteral");
+  });
+
   server.on("/config", HTTP_POST, []() {
     if (server.hasArg("ssid")) ssid = server.arg("ssid");
     if (server.hasArg("pass")) pass = server.arg("pass");
@@ -269,62 +272,41 @@ void setupRoutes() {
   server.onNotFound([]() { server.send(404, "text", "Not found"); });
 }
 
-// Ahora debes mover el contenido de dht_time_functions.ino aquí abajo directamente,
-// y eliminar cualquier duplicado o conflicto antes de compilar.
-
-// ======== DHT11 SENSOR READINGS ======== //
 void updateDHTReadings() {
   if (millis() - lastDHTCheck >= DHT_CHECK_INTERVAL) {
     lastDHTCheck = millis();
-    
-    // Read temperature and humidity from DHT11
     float newTemp = dht.readTemperature();
     float newHumidity = dht.readHumidity();
-    
-    // Check if readings are valid
     if (!isnan(newTemp) && !isnan(newHumidity)) {
       temperature = newTemp;
       humidity = newHumidity;
-      
       Serial.print("Temperature: ");
       Serial.print(temperature);
       Serial.print("°C, Humidity: ");
       Serial.print(humidity);
       Serial.println("%");
-      
-      // Check if humidity is too low
-      if (humidity < HUMIDITY_LOW) {
-        Serial.println("Warning: Low humidity detected!");
-      }
+      if (humidity < HUMIDITY_LOW) Serial.println("Warning: Low humidity detected!");
     }
   }
 }
 
-// ======== TIME-BASED BRIGHTNESS CONTROL ======== //
 void updateTimeBasedBrightness() {
   static unsigned long lastTimeCheck = 0;
-  const long timeCheckInterval = 60000; // Check time every minute
-  
+  const long timeCheckInterval = 60000;
   if (millis() - lastTimeCheck >= timeCheckInterval) {
     lastTimeCheck = millis();
-    
     struct tm timeinfo;
     if (getLocalTime(&timeinfo)) {
       int currentHour = timeinfo.tm_hour;
-      
-      // Night time (8 PM to 8 AM): dim the lights
       if (currentHour >= NIGHT_HOUR || currentHour < MORNING_HOUR) {
-        // Gradually transition to night mode if not already there
         dayNightBrightness = max(0.2, dayNightBrightness - 0.05);
       } else {
-        // Gradually transition to day mode if not already there
         dayNightBrightness = min(1.0, dayNightBrightness + 0.05);
       }
     }
   }
 }
 
-// ======== UTILITY FUNCTIONS ======== //
 void printLocalTime() {
   struct tm timeinfo;
   if (getLocalTime(&timeinfo)) {
@@ -333,3 +315,7 @@ void printLocalTime() {
     Serial.println("Failed to obtain time");
   }
 }
+
+void breathingDi() {}
+void updateLCD(int val) {}
+
