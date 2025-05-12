@@ -1,5 +1,17 @@
 # Changelog
 
+## v1.2.0 - 2024-05-12
+
+### Added or Changed
+- Web-based configuration interface
+- WiFi Access Point mode for easy setup
+- EEPROM storage for persistent settings
+- Responsive web dashboard for monitoring
+- Automatic fallback to AP mode when WiFi connection fails
+- Removed BluetoothSerial dependency for better compatibility with ESP32 variants
+- Improved error handling and system stability
+- Enhanced web interface with mobile-friendly design
+
 ## v1.1.2
 
 ### Added or Changed
