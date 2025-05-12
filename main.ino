@@ -380,18 +380,49 @@ void setupRoutes() {
   });
 }
 
-// === Adjust brightness based on time ===
-void updateTimeBasedBrightness() {
-  struct tm timeinfo;
-  if (!getLocalTime(&timeinfo)) return;
-  int h = timeinfo.tm_hour;
-  dayNightBrightness = (h >= NIGHT_HOUR || h < MORNING_HOUR) ? 0.3 : 1.0;
+// === Periodically update DHT readings with improved error handling ===
+void updateDHTReadings() {
+  if (millis() - lastDHTCheck >= DHT_CHECK_INTERVAL) {
+    lastDHTCheck = millis();
+    float newTemp = dht.readTemperature();
+    float newHumidity = dht.readHumidity();
+    if (!isnan(newTemp) && !isnan(newHumidity)) {
+      temperature = newTemp;
+      humidity = newHumidity;
+      Serial.print("Temperature: ");
+      Serial.print(temperature);
+      Serial.print("°C, Humidity: ");
+      Serial.print(humidity);
+      Serial.println("%");
+      if (humidity < HUMIDITY_LOW) Serial.println("Warning: Low humidity detected!");
+    }
+  }
 }
 
-// === Periodically update DHT readings ===
-void updateDHTReadings() {
-  if (millis() - lastDHTCheck < DHT_CHECK_INTERVAL) return;
-  lastDHTCheck = millis();
-  temperature = dht.readTemperature();
-  humidity = dht.readHumidity();
+// === Adjust brightness based on time with gradual changes ===
+void updateTimeBasedBrightness() {
+  static unsigned long lastTimeCheck = 0;
+  const long timeCheckInterval = 60000;
+  if (millis() - lastTimeCheck >= timeCheckInterval) {
+    lastTimeCheck = millis();
+    struct tm timeinfo;
+    if (getLocalTime(&timeinfo)) {
+      int currentHour = timeinfo.tm_hour;
+      if (currentHour >= NIGHT_HOUR || currentHour < MORNING_HOUR) {
+        dayNightBrightness = max(0.2, dayNightBrightness - 0.05);
+      } else {
+        dayNightBrightness = min(1.0, dayNightBrightness + 0.05);
+      }
+    }
+  }
+}
+
+// === Print local time utility function ===
+void printLocalTime() {
+  struct tm timeinfo;
+  if (getLocalTime(&timeinfo)) {
+    Serial.println(&timeinfo, "Current time: %A, %B %d %Y %H:%M:%S");
+  } else {
+    Serial.println("Failed to obtain time");
+  }
 }
