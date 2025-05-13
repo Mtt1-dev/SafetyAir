@@ -131,7 +131,7 @@ Distribuido bajo la Licencia Unlicense. Consulta el archivo `LICENSE.txt` para m
 
 * [El Equipo De Pauta](https://www.pauta.org.mx/en/)
 * Mi Equipo De Pauta (No Mencionado)
-* [El equipo de Arduino](https://www.arduino.cc/)
+* [El Equipo de Arduino](https://www.arduino.cc/)
 
 <p align="right">(<a href="#readme-top">volver al inicio</a>)</p>
 
