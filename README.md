@@ -1,3 +1,4 @@
+
 <!-- Mejorada la compatibilidad del enlace "Volver al inicio": Ver: https://github.com/othneildrew/Best-README-Template/pull/73 -->
 <a id="readme-top"></a>
 <!--
@@ -86,19 +87,21 @@ Se usan estos materiales:
 
 ### Hecho Con
 
-![Static Badge](https://img.shields.io/badge/Java-Script-yellow?style=for-the-badge&logo=javascript)
+![Static Badge](https://img.shields.io/badge/Ardu-ino-teal?style=for-the-badge&logo=arduino&labelColor=%2300b1fc)
 
 
 <p align="right">(<a href="#readme-top">Volver al inicio</a>)</p>
 <!-- ROADMAP -->
+
 ## Por Hacer
+
   - [x] Planear
   - [x] Materiales
   - [ ] Realizar el fisico
   - [ ] Realizar el codigo
 
 
-Consulta los [issues abiertos](https://github.com/othneildrew/Best-README-Template/issues) para ver una lista completa de características propuestas (y problemas conocidos).
+Consulta los [issues abiertos](https://github.com/Mtt1-dev/SafetyAir/issues) para ver una lista completa de características propuestas (y problemas conocidos).
 
 <p align="right">(<a href="#readme-top">volver al inicio</a>)</p>
 
@@ -129,7 +132,7 @@ Distribuido bajo la Licencia Unlicense. Consulta el archivo `LICENSE.txt` para m
 
 * [El Equipo De Pauta](https://www.pauta.org.mx/en/)
 * Mi Equipo De Pauta (No Mencionado)
-* [El equipo de ESPruino](https://www.espruino.com/)
+* [El Equipo de Arduino](https://www.arduino.cc/)
 
 <p align="right">(<a href="#readme-top">volver al inicio</a>)</p>
 
