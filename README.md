@@ -98,7 +98,14 @@ Se usan estos materiales:
   - [x] Planear
   - [x] Materiales
   - [ ] Realizar el fisico
-  - [ ] Realizar el codigo
+  - [x] Realizar el codigo
+
+## Versión de Depuración
+
+Se ha creado una versión de depuración (`main_debug.ino`) que:
+- Deshabilita la funcionalidad LCD para evitar errores I2C
+- Proporciona salida serial más detallada
+- Facilita la identificación de la dirección IP de la interfaz web
 
 
 Consulta los [issues abiertos](https://github.com/Mtt1-dev/SafetyAir/issues) para ver una lista completa de características propuestas (y problemas conocidos).
