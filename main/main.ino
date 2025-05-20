@@ -14,7 +14,8 @@
 #define FAN_PIN     3
 #define PIX_PIN     4
 #define PUMP_PIN    5
-#define MQ135_PIN   34
+#define MQ135_APIN  15  // Analog pin for MQ135
+#define MQ135_DPIN  16  // Digital pin for MQ135
 
 // === LEDC (PWM) channel config ===
 #define PWM_FREQ    5000
@@ -40,8 +41,8 @@ LiquidCrystal_I2C lcd(0x27, 16, 2);
 DHT dht(DHTPIN, DHTTYPE);
 
 // === Network & AQI settings ===
-String ssid = "YOUR_SSID";
-String pass = "YOUR_PASS";
+String ssid = "Totalplay_87AC";
+String pass = "87ACEFEFDDCapeKR";
 String waqiToken = "YOUR_WAQI_TOKEN";
 String waqiCity = "shanghai";
 bool apMode = false;
@@ -77,7 +78,8 @@ void setup() {
   pinMode(LED_PIN, OUTPUT);
   pinMode(FAN_PIN, OUTPUT);
   pinMode(PUMP_PIN, OUTPUT);
-  pinMode(MQ135_PIN, INPUT);
+  pinMode(MQ135_APIN, INPUT);
+  pinMode(MQ135_DPIN, INPUT);  // Set digital pin as input
 
   // Use new LEDC API: sets PWM channel for pin
   ledcAttach(FAN_PIN, PWM_FREQ, PWM_RES);
@@ -237,15 +239,21 @@ void startAPMode() {
 
 // === Read sensors and react accordingly ===
 void readSensors() {
-  int mq = analogRead(MQ135_PIN);
+  // Read analog value from MQ135
+  int mq = analogRead(MQ135_APIN);
+  
+  // Read digital value from MQ135 (HIGH when gas detected, LOW when clean)
+  bool gasDetected = digitalRead(MQ135_DPIN);
+  
   float factor = (float)(mq - 2000) / 500.0;
   factor = constrain(factor, 0, 5);
   float speed = pow(1.5, factor);
   int pwm = constrain((int)(speed * 30), 0, 255);
   ledcWrite(fanCh, pwm);
 
-  if (mq > 2000 && !pumpState) setPump(true);
-  if (mq <= 2000 && pumpState) setPump(false);
+  // Use both analog and digital readings for better accuracy
+  if ((mq > 2000 || gasDetected) && !pumpState) setPump(true);
+  if (mq <= 2000 && !gasDetected && pumpState) setPump(false);
 
   // Set RGB LED color based on air quality
   uint8_t r = min(255, (mq - 2000) / 2);
@@ -255,7 +263,7 @@ void readSensors() {
   localAQ = mq;
 
   updateDHTReadings();
-  updateLCD(localAQ);
+  updateLCD(localAQ, gasDetected);
 }
 
 // === Set pump ON or OFF ===
@@ -290,7 +298,7 @@ void breathingDi() {
 }
 
 // === Update LCD with AQI and temp ===
-void updateLCD(int aq) {
+void updateLCD(int aq, bool gasDetected) {
   if (apMode) return; // Don't update LCD in AP mode
   
   lcd.clear();
@@ -302,6 +310,10 @@ void updateLCD(int aq) {
   lcd.print(temperature);
   lcd.print((char)223);
   lcd.print("C");
+  
+  // Show gas detection status
+  lcd.setCursor(14, 0);
+  lcd.print(gasDetected ? "!" : " ");
 }
 
 // === Set up web routes ===
@@ -330,7 +342,8 @@ void setupRoutes() {
       html += "<style>body{font-family:Arial;margin:0;padding:20px;} .container{max-width:600px;margin:0 auto;} .card{background:#f0f0f0;padding:15px;margin:10px 0;border-radius:5px;}</style>";
       html += "</head><body><div class='container'>";
       html += "<h1>SafetyAir Dashboard</h1>";
-      html += "<div class='card'><h2>Local Air Quality</h2><p>Reading: " + String(localAQ) + "</p></div>";
+      html += "<div class='card'><h2>Local Air Quality</h2><p>Reading: " + String(localAQ) + "</p>";
+      html += "<p>Digital Sensor: " + String(digitalRead(MQ135_DPIN) ? "Gas Detected" : "Clean Air") + "</p></div>";
       html += "<div class='card'><h2>City Air Quality</h2><p>AQI: " + String(cityAQ) + "</p></div>";
       html += "<div class='card'><h2>Temperature & Humidity</h2><p>Temperature: " + String(temperature) + "°C</p><p>Humidity: " + String(humidity) + "%</p></div>";
       html += "<p><a href='/config'>Configuration</a></p>";
