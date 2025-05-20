@@ -48,7 +48,7 @@ Se usan estos materiales:
 
 | Componente                     | Precio MXN       | Fuente                        |
 |---------------------------------|------------------|-------------------------------|
-| ESP32 DevKitC v4                | 350-450          | MercadoLibre, Amazon MX        |
+| ESP32 DevKitC v4/ FRI3D BADGE 2024 | 350-450          | MercadoLibre, Amazon MX        |
 | LCD 3.5" táctil                 | 300-380          | ElectronicaMX, MercadoLibre    |
 | Tira Neopixel (tira de 60)      | 150-200          | Adafruit MX, ElectronicaMX     |
 | Botones táctiles grandes        | 100-150          | MercadoLibre, tiendas especializadas |
