@@ -26,7 +26,7 @@
 <br />
 <div align="center">
   <a href="https://github.com/Mtt1-dev">
-    <img src="images/RQLA08612" alt="Logo" width="470" height="394">
+    <img src="RQLA08612.webp" alt="Logo" width="470" height="394">
   </a>
   <p align="center">
     Un proyecto enfocado en la purificación de Aire
