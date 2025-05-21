@@ -25,8 +25,8 @@
 <!-- LOGO DEL PROYECTO -->
 <br />
 <div align="center">
-  <a href="https://github.com/othneildrew/Best-README-Template">
-    <img src="images/Post de Facebook Logo Vibras simple amarillo.png" alt="Logo" width="470" height="394">
+  <a href="https://github.com/Mtt1-dev">
+    <img src="images/RQLA08612" alt="Logo" width="470" height="394">
   </a>
   <p align="center">
     Un proyecto enfocado en la purificación de Aire
