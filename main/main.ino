@@ -8,6 +8,8 @@
 #include <DHT.h>
 #include "driver/ledc.h"
 #include <EEPROM.h>
+#include <Wire.h>
+
 
 // === Pin and device configuration ===
 #define LED_PIN     2
@@ -16,11 +18,17 @@
 #define PUMP_PIN    5
 #define MQ135_APIN  15  // Analog pin for MQ135
 #define MQ135_DPIN  16  // Digital pin for MQ135
+#define I2C_SDA 8
+#define I2C_SCL 9
 
 // === LEDC (PWM) channel config ===
 #define PWM_FREQ    5000
 #define PWM_RES     8
 uint8_t fanCh = 0;
+String pass = "87ACEFEFDDCapeKR";
+String waqiToken = "78ee8f4b8ac82a8aafe9bbd66e460268db35f254";
+String waqiCity = "Salamanca";
+bool apMode = false;
 
 // === DHT sensor configuration ===
 #define DHTPIN      18
@@ -37,14 +45,15 @@ uint8_t fanCh = 0;
 // === Global instances ===
 Adafruit_NeoPixel strip(1, PIX_PIN, NEO_GRB + NEO_KHZ800);
 WebServer server(80);
-LiquidCrystal_I2C lcd(0x27, 16, 2);
+LiquidCrystal_I2C lcd(0x27, 20, 4);
 DHT dht(DHTPIN, DHTTYPE);
 
 // === Network & AQI settings ===
 String ssid = "Totalplay_87AC";
-String pass = "87ACEFEFDDCapeKR";
-String waqiToken = "YOUR_WAQI_TOKEN";
-String waqiCity = "shanghai";
+String 
+pass = "87ACEFEFDDCapeKR";
+String waqiToken = "78ee8f4b8ac82a8aafe9bbd66e460268db35f254";
+String waqiCity = "Salamanca";
 bool apMode = false;
 
 // === Timers ===
@@ -69,6 +78,8 @@ void setup() {
   Serial.begin(115200);
   Serial.println("Starting SafetyAir Monitor");
   
+  Wire.begin(I2C_SDA, I2C_SCL);
+
   // Initialize EEPROM for settings storage
   EEPROM.begin(EEPROM_SIZE);
   
@@ -87,7 +98,7 @@ void setup() {
   strip.begin();
   strip.show(); // Turn off all LEDs initially
 
-  lcd.init();
+  lcd.begin();
   lcd.backlight();
   lcd.setCursor(0, 0);
   lcd.print("Booting...");
@@ -223,7 +234,7 @@ void startAPMode() {
   Serial.println("Starting AP Mode");
   apMode = true;
   WiFi.mode(WIFI_AP);
-  WiFi.softAP("SafetyAir-Config", "password");
+  WiFi.softAP("SafetyAir-config", "password");
   
   IPAddress IP = WiFi.softAPIP();
   Serial.print("AP IP address: ");
@@ -231,7 +242,7 @@ void startAPMode() {
   
   lcd.clear();
   lcd.setCursor(0, 0);
-  lcd.print("AP: SafetyAir-Config");
+  lcd.print("AP: SafetyAir");
   lcd.setCursor(0, 1);
   lcd.print("IP: ");
   lcd.print(IP);
@@ -241,6 +252,8 @@ void startAPMode() {
 void readSensors() {
   // Read analog value from MQ135
   int mq = analogRead(MQ135_APIN);
+  Serial.println("Contaminantes:");
+  Serial.println(mq);
   
   // Read digital value from MQ135 (HIGH when gas detected, LOW when clean)
   bool gasDetected = digitalRead(MQ135_DPIN);
@@ -315,8 +328,6 @@ void updateLCD(int aq, bool gasDetected) {
   lcd.setCursor(14, 0);
   lcd.print(gasDetected ? "!" : " ");
 }
-
-// === Set up web routes ===
 void setupRoutes() {
   // Main page
   server.on("/", HTTP_GET, []() {
@@ -324,7 +335,19 @@ void setupRoutes() {
       // Configuration page in AP mode
       String html = "<html><head><title>SafetyAir Config</title>";
       html += "<meta name='viewport' content='width=device-width, initial-scale=1'>";
-      html += "<style>body{font-family:Arial;margin:0;padding:20px;} input,button{width:100%;padding:10px;margin:8px 0;} .container{max-width:400px;margin:0 auto;}</style>";
+      html += "<style>";
+      html += "body{font-family:'Roboto',sans-serif;background:#f5f5f5;margin:0;padding:0;}";
+      html += ".container{max-width:480px;margin:40px auto;background:#fff;padding:30px;border-radius:12px;box-shadow:0 4px 12px rgba(0,0,0,0.1);}";
+      html += "h1,h2{font-weight:400;color:#202124;}";
+      html += "input[type='text'],input[type='password'],button{width:100%;padding:12px 16px;margin:12px 0;font-size:16px;border:1px solid #dadce0;border-radius:8px;box-sizing:border-box;}";
+      html += "input:focus,button:focus{outline:none;border-color:#1a73e8;box-shadow:0 0 0 2px rgba(26,115,232,0.2);}";
+      html += "button{background-color:#1a73e8;color:#fff;border:none;cursor:pointer;transition:background-color 0.2s;}";
+      html += "button:hover{background-color:#1669c1;}";
+      html += "a{display:inline-block;margin-top:12px;color:#1a73e8;text-decoration:none;}";
+      html += "a:hover{text-decoration:underline;}";
+      html += ".card{background:#fff;padding:20px;margin:16px 0;border-radius:12px;box-shadow:0 2px 8px rgba(0,0,0,0.08);}";
+      html += "p{color:#3c4043;margin:6px 0;}";
+      html += "</style>";
       html += "</head><body><div class='container'>";
       html += "<h1>SafetyAir Configuration</h1>";
       html += "<form action='/save' method='post'>";
@@ -339,7 +362,15 @@ void setupRoutes() {
       String html = "<html><head><title>SafetyAir Dashboard</title>";
       html += "<meta name='viewport' content='width=device-width, initial-scale=1'>";
       html += "<meta http-equiv='refresh' content='10'>";
-      html += "<style>body{font-family:Arial;margin:0;padding:20px;} .container{max-width:600px;margin:0 auto;} .card{background:#f0f0f0;padding:15px;margin:10px 0;border-radius:5px;}</style>";
+      html += "<style>";
+      html += "body{font-family:'Roboto',sans-serif;background:#f5f5f5;margin:0;padding:0;}";
+      html += ".container{max-width:600px;margin:40px auto;background:#fff;padding:30px;border-radius:12px;box-shadow:0 4px 12px rgba(0,0,0,0.1);}";
+      html += "h1,h2{font-weight:400;color:#202124;}";
+      html += "a{display:inline-block;margin-top:12px;color:#1a73e8;text-decoration:none;}";
+      html += "a:hover{text-decoration:underline;}";
+      html += ".card{background:#fff;padding:20px;margin:16px 0;border-radius:12px;box-shadow:0 2px 8px rgba(0,0,0,0.08);}";
+      html += "p{color:#3c4043;margin:6px 0;}";
+      html += "</style>";
       html += "</head><body><div class='container'>";
       html += "<h1>SafetyAir Dashboard</h1>";
       html += "<div class='card'><h2>Local Air Quality</h2><p>Reading: " + String(localAQ) + "</p>";
@@ -351,12 +382,24 @@ void setupRoutes() {
       server.send(200, "text/html", html);
     }
   });
-  
+
   // Configuration page in station mode
   server.on("/config", HTTP_GET, []() {
     String html = "<html><head><title>SafetyAir Config</title>";
     html += "<meta name='viewport' content='width=device-width, initial-scale=1'>";
-    html += "<style>body{font-family:Arial;margin:0;padding:20px;} input,button{width:100%;padding:10px;margin:8px 0;} .container{max-width:400px;margin:0 auto;}</style>";
+    html += "<style>";
+    html += "body{font-family:'Roboto',sans-serif;background:#f5f5f5;margin:0;padding:0;}";
+    html += ".container{max-width:480px;margin:40px auto;background:#fff;padding:30px;border-radius:12px;box-shadow:0 4px 12px rgba(0,0,0,0.1);}";
+    html += "h1,h2{font-weight:400;color:#202124;}";
+    html += "input[type='text'],input[type='password'],button{width:100%;padding:12px 16px;margin:12px 0;font-size:16px;border:1px solid #dadce0;border-radius:8px;box-sizing:border-box;}";
+    html += "input:focus,button:focus{outline:none;border-color:#1a73e8;box-shadow:0 0 0 2px rgba(26,115,232,0.2);}";
+    html += "button{background-color:#1a73e8;color:#fff;border:none;cursor:pointer;transition:background-color 0.2s;}";
+    html += "button:hover{background-color:#1669c1;}";
+    html += "a{display:inline-block;margin-top:12px;color:#1a73e8;text-decoration:none;}";
+    html += "a:hover{text-decoration:underline;}";
+    html += ".card{background:#fff;padding:20px;margin:16px 0;border-radius:12px;box-shadow:0 2px 8px rgba(0,0,0,0.08);}";
+    html += "p{color:#3c4043;margin:6px 0;}";
+    html += "</style>";
     html += "</head><body><div class='container'>";
     html += "<h1>SafetyAir Configuration</h1>";
     html += "<form action='/save' method='post'>";
@@ -369,25 +412,31 @@ void setupRoutes() {
     html += "</div></body></html>";
     server.send(200, "text/html", html);
   });
-  
+
   // Save configuration
   server.on("/save", HTTP_POST, []() {
     ssid = server.arg("ssid");
     pass = server.arg("pass");
     waqiCity = server.arg("city");
-    
+
     saveSettings();
-    
+
     String html = "<html><head><title>Configuration Saved</title>";
     html += "<meta name='viewport' content='width=device-width, initial-scale=1'>";
-    html += "<style>body{font-family:Arial;margin:0;padding:20px;text-align:center;} .container{max-width:400px;margin:0 auto;}</style>";
     html += "<meta http-equiv='refresh' content='5;url=/'>";
+    html += "<style>";
+    html += "body{font-family:'Roboto',sans-serif;background:#f5f5f5;margin:0;padding:0;text-align:center;}";
+    html += ".container{max-width:480px;margin:40px auto;background:#fff;padding:30px;border-radius:12px;box-shadow:0 4px 12px rgba(0,0,0,0.1);}";
+    html += "h1{font-weight:400;color:#202124;}";
+    html += "p{color:#3c4043;margin:12px 0;}";
+    html += "</style>";
     html += "</head><body><div class='container'>";
     html += "<h1>Configuration Saved</h1>";
     html += "<p>Your settings have been saved. Device will restart in 5 seconds.</p>";
     html += "</div></body></html>";
+
     server.send(200, "text/html", html);
-    
+
     delay(1000);
     ESP.restart();
   });
